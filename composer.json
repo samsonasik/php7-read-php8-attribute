@@ -1,0 +1,7 @@
+{
+    "require": {
+        "nikic/php-parser": "^4.12",
+        "symfony/routing": "^5.3",
+        "symfony/var-dumper": "^5.3"
+    }
+}
