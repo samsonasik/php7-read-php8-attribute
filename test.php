@@ -4,6 +4,7 @@ use PhpParser\Error;
 use PhpParser\ParserFactory;
 use PhpParser\Node;
 use PhpParser\Node\AttributeGroup;
+use PhpParser\Node\Scalar\String_;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
 
@@ -55,6 +56,17 @@ $nodeTraverser->addVisitor(new class extends NodeVisitorAbstract {
                     echo PHP_EOL;
 
                     echo $name;
+
+                    echo 'args:';
+                    echo PHP_EOL; echo PHP_EOL;
+
+                    foreach ($attribute->args as $arg) {
+                        if ($arg->value instanceof String_) {
+                            echo 'arg name:' . (string) $arg->name;
+                            echo ', arg value: ' . $arg->value->value;
+                            echo PHP_EOL; echo PHP_EOL;
+                        }
+                    }
 
                     echo PHP_EOL;
 
